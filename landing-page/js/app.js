@@ -34,6 +34,7 @@ allSections.forEach( (section, index) => {
     const newListElements = document.createElement('li');
     
     newAnchor.classList.add("menu__link");
+    newAnchor.setAttribute('data-nav-item', `nav-item-${index + 1}`);
     newAnchor.innerText = section.getAttribute('data-nav');
     newAnchor.href = `#${section.getAttribute('id')}`;
     newListElements.appendChild(newAnchor);
@@ -46,13 +47,22 @@ allSections.forEach( (section, index) => {
 
 // Add class 'active' to section when near top of viewport
 
+const allNavbarItems = document.querySelectorAll('a[data-nav-item]');
+
 window.onscroll = () => { 
 
     for (let i = 0; i < allSections.length; i++) {
         if (allSections[i].getBoundingClientRect().top <= 150 && allSections[i].getBoundingClientRect().top >= -150) {
             allSections.forEach(section => {
                 if (section === allSections[i]) {
-                    section.classList.add('active-class'); 
+                    section.classList.add('active-class');                  
+                    for (let j = 0; j < allNavbarItems.length; j++) {
+                        if (allNavbarItems[j].innerText === section.getAttribute('data-nav')) {
+                           allNavbarItems[j].classList.add('active-class');
+                       } else {
+                           allNavbarItems[j].classList.remove('active-class');
+                       }
+                   }
                 } else {
                     section.classList.remove('active-class');
                 }
@@ -62,7 +72,16 @@ window.onscroll = () => {
     }
 }
 
+// Add the smooth scroll behavior to link to the correct section
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
 // End Main Functions
-
-

@@ -1,13 +1,16 @@
 # Landing Page Project
 
-## Table of Contents
+## Description
 
-* [Instructions](#instructions)
+### What the project does
 
-## Instructions
+This project aims to give you real-world scenarios of manipulating the DOM. The project is a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
+This page has four sections. Additionally, when a user clicks on a navigation item, the item scroll you to the appropriate section with the smooth behavior.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Prerequisite
 
-To get started, open `js/app.js` and start building out the app's functionality
+No special requirements
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Installation
+
+To get this project, you have to click this url: https://github.com/MarioKrausser/Landing-Page.git
